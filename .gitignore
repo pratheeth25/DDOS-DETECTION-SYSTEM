@@ -1,0 +1,65 @@
+# ============================
+# Python cache
+# ============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+
+# ============================
+# Virtual Environment
+# ============================
+venv/
+.env/
+.env.*
+
+# ============================
+# VS Code
+# ============================
+.vscode/
+
+# ============================
+# Jupyter / IPython
+# ============================
+.ipynb_checkpoints/
+
+# ============================
+# ML / Model Files
+# ============================
+saved_models/
+*.h5
+*.keras
+*.pkl
+
+# ============================
+# Data Files (Optional)
+# ============================
+data/raw/
+data/processed/
+simulation/live_traffic.csv
+
+# Uncomment below if you want to ignore all CSVs
+# *.csv
+
+# ============================
+# Logs
+# ============================
+*.log
+
+# ============================
+# OS Files
+# ============================
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ============================
+# Streamlit Cache
+# ============================
+.streamlit/
+
+# ============================
+# PyCharm (if used)
+# ============================
+.idea/
