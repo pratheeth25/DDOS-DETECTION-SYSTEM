@@ -1,13 +1,15 @@
 import joblib
 from tensorflow import keras
+import os
 
 
-# Load ML models
-xgb = joblib.load("saved_models/xgb.pkl")
-iforest = joblib.load("saved_models/iforest.pkl")
+def load_all_models():
 
-# Load Autoencoder (new format)
-ae = keras.models.load_model("saved_models/ae.keras")
+    base = "saved_models"
 
-# Load scaler
-scaler = joblib.load("saved_models/scaler.pkl")
+    xgb = joblib.load(os.path.join(base, "xgb.pkl"))
+    iforest = joblib.load(os.path.join(base, "iforest.pkl"))
+    ae = keras.models.load_model(os.path.join(base, "ae.keras"))
+    scaler = joblib.load(os.path.join(base, "scaler.pkl"))
+
+    return xgb, iforest, ae, scaler

@@ -2,12 +2,15 @@ import numpy as np
 import joblib
 import ipaddress
 
-from inference.load_models import xgb, iforest, ae, scaler
+from inference.load_models import load_all_models
 
 
-# Load protocol encoder + label encoder
+# Load encoders
 proto_encoder = joblib.load("saved_models/proto.pkl")
 label_encoder = joblib.load("saved_models/label_encoder.pkl")
+
+# Load models only when needed
+xgb, iforest, ae, scaler = load_all_models()
 
 
 def ip_to_int(ip):
@@ -18,10 +21,7 @@ def preprocess_input(df):
 
     df = df.copy()
 
-    # Convert IP to number (no crash now)
     df["ip"] = df["ip"].apply(ip_to_int)
-
-    # Encode protocol
     df["protocol"] = proto_encoder.transform(df["protocol"])
 
     return df
